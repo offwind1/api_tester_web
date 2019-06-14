@@ -5,7 +5,7 @@ from django.shortcuts import render, render_to_response
 
 # Create your views here.
 from api.models import Project, Module
-from common import get_ajax_msg, set_filter_session
+from common import get_ajax_msg, set_filter_session, get_module_list
 from user.views import login_check
 
 
@@ -85,35 +85,14 @@ def module_list(request, id):
         if mode and mode == "del" and id_:
             try:
                 Module.objects.get(id=id_).delete()
-            except:
+            except Module.DoesNotExist:
                 return HttpResponse("删除出错，不存在该模块")
 
         return HttpResponse("ok")
     else:
 
         filter_query = set_filter_session(request)
-
-        if request.method == "GET":
-            project = filter_query.get("belong_project")
-
-            if project == "All" or project is None:
-                module_list = Module.objects.all().order_by("-create_time")
-            else:
-                module_list = Module.objects.filter(belong_project__project_name=project).order_by("-create_time")
-
-        elif request.method == "POST":
-            project = request.POST.get("project")
-            module = request.POST.get("module")
-
-            if project and project != "All":
-                if module and module != "请选择":
-
-                    module_list = Module.objects.filter(belong_project__project_name=project, id=module).order_by(
-                        "-create_time")
-                else:
-                    module_list = Module.objects.filter(belong_project__project_name=project).order_by("-create_time")
-            else:
-                module_list = Module.objects.all().order_by("-create_time")
+        module_list = get_module_list(filter_query, request)
 
         manage_info = {
             'account': account,
@@ -155,11 +134,12 @@ def get_module(request):
     module_info = json.loads(request.body.decode('utf-8'))
     project = module_info.get("project")
 
-    if project is None:
+    if not project:
         return HttpResponse("error! 项目参数有误")
 
-    if project == "All":
+    if project == "All" or project == "请选择":
         return HttpResponse("")
+
 
     module_set = Project.objects.get(project_name=project).module_set.all()
     string = ''

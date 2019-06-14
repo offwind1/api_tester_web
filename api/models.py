@@ -2,6 +2,9 @@ from django.db import models
 
 
 # Create your models here.
+from api.managers import ApiManager
+
+
 class BaseTable(models.Model):
     create_time = models.DateTimeField('创建时间', auto_now_add=True)
     update_time = models.DateTimeField('更新时间', auto_now=True)
@@ -37,13 +40,18 @@ class Api(BaseTable):
     # 接口名称
     api_name = models.CharField("接口名称", max_length=30)
     # 模块外键
-    belong_module = models.ForeignKey(Module, on_delete=models.CASCADE)
+    # belong_project = models.ForeignKey(Project, on_delete=models.CASCADE, null=True)
+    belong_module = models.ForeignKey(Module, on_delete=models.CASCADE, null=True)
     # 接口模板内容
     request = models.TextField("请求信息")
+
+    objects = ApiManager()
 
     class Meta:
         verbose_name = '接口'
         db_table = 'Api'
+
+
 
 
 class Step(BaseTable):

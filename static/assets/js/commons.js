@@ -13,6 +13,21 @@ function show_module(module_info, id) {
 
 }
 
+function show_api(api_info, id) {
+    api_info = api_info.split('replaceFlag');
+    var a = $(id);
+    a.empty();
+
+    for (var i = 0; i < api_info.length; i++) {
+        if (api_info[i] !== "") {
+            var value = api_info[i].split('^=');
+            a.prepend("<option value='" + value[0] + "' >" + value[1] + "</option>")
+        }
+    }
+    a.prepend("<option value='请选择' selected>请选择</option>");
+
+}
+
 function show_case(case_info, id) {
     case_info = case_info.split('replaceFlag');
     var a = $(id);
@@ -62,14 +77,18 @@ function auto_load(id, url, target, type) {
         data: JSON.stringify(data),
         contentType: "application/json",
         success: function (data) {
-            if (data.startsWith("error")){
+            if (data.startsWith("error")) {
                 myAlert(data);
                 return
             }
 
             if (type === 'module') {
                 show_module(data, target)
-            } else {
+            }
+            else if (type === 'api'){
+                show_api(data, target)
+            }
+            else {
                 show_case(data, target)
             }
         }
@@ -147,12 +166,11 @@ function copy_data_ajax(id, url) {
     });
 }
 
-function case_ajax(type, editor) {
+function case_ajax(type, editor, id="") {
     var url = $("#url").serializeJSON();
     var method = $("#method").serializeJSON();
     var dataType = $("#DataType").serializeJSON();
     var caseInfo = $("#form_message").serializeJSON();
-    var variables = $("#form_variables").serializeJSON();
     var request_data = null;
     if (dataType.DataType === 'json') {
         try {
@@ -167,19 +185,10 @@ function case_ajax(type, editor) {
     var headers = $("#form_request_headers").serializeJSON();
     var extract = $("#form_extract").serializeJSON();
     var validate = $("#form_validate").serializeJSON();
-    var parameters = $('#form_params').serializeJSON();
-    var hooks = $('#form_hooks').serializeJSON();
-    var include = [];
-    var i = 0;
-    $("ul#pre_case li a").each(function () {
-        include[i++] = [$(this).attr('id'), $(this).text()];
-    });
-    caseInfo['include'] = include;
+
     const test = {
         "test": {
             "name": caseInfo,
-            "parameters": parameters,
-            "variables": variables,
             "request": {
                 "url": url.url,
                 "method": method.method,
@@ -189,14 +198,16 @@ function case_ajax(type, editor) {
             },
             "extract": extract,
             "validate": validate,
-            "hooks": hooks,
         }
     };
     if (type === 'edit') {
-        url = '/api/edit_case/';
-    } else {
-        url = '/api/add_case/';
+        if(id){
+            url = '/api/edit_api/'+id+"/";
+        }
+    } else if (type === "add_api") {
+        url = '/api/add_api/';
     }
+
     $.ajax({
         type: 'post',
         url: url,
