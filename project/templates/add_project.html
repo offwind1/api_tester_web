@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}新增项目{% endblock %}
+{% load staticfiles %}
+{% block content %}
+
+    <div class=" admin-content">
+
+        <div class="admin-biaogelist">
+            <div class="listbiaoti am-cf">
+                <ul class="am-icon-flag on"> 新增项目</ul>
+                <dl class="am-icon-home" style="float: right;"> 当前位置： 项目管理 > <a href="#">新增项目</a></dl>
+            </div>
+            <div class="fbneirong">
+                <form class="form-horizontal" id="add_project">
+                    <div class="form-group  has-feedback">
+                        <label class="control-label col-md-1 text-primary" for="project_name">项目名称：</label>
+                        <div class="col-md-5">
+                            <input type="text" class="form-control" id="project_name"
+                                   aria-describedby="inputSuccess3Status" name="project_name" placeholder="请输入项目名称"
+                                   value="">
+                            <span class="glyphicon glyphicon-th-large form-control-feedback" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                    <div class="am-form-group am-cf">
+                        <div class="you" style="margin-left: 8%;">
+                            <button type="button" class="am-btn am-btn-success am-radius" id="send"
+                                    onclick="info_ajax('#add_project', '/project/add_project/')">点 击 提 交
+                            </button>&nbsp;
+                            &raquo; &nbsp;
+                            <a type="submit" href="/project/add_module/" class="am-btn am-btn-secondary am-radius">新 增 模
+                                块</a>
+
+                        </div>
+                    </div>
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
