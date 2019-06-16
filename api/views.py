@@ -1,6 +1,6 @@
 import json
 
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, render_to_response
 
 from api.models import Project, Api, Module
@@ -160,7 +160,18 @@ def get_api(request):
         string = string + str(api.id) + '^=' + api.api_name + 'replaceFlag'
     return HttpResponse(string[:len(string) - 11])
 
+def get_api_request(request):
+    api_info = json.loads(request.body.decode('utf-8'))
 
+    if "api" in api_info:
+        api = Api.objects.filter(id=api_info.get("api")).first()
+        if api:
+
+            data = json.loads(api.request)
+            data["id"] = api.id
+            return JsonResponse(data)
+
+    return HttpResponse("false")
 
 def add_case(request, id=1):
     account = request.session["now_account"]
