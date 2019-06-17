@@ -68,244 +68,21 @@
 
             </div>
 
-            <div id="tab-step-list" style="float: right; width: 70%; display: none;">
-                <div class="am-tabs am-margin" style="display: block">
-                    <ul class="am-tabs-nav am-nav am-nav-tabs">
-                        <li><a href="javascript:;" data-target="0">request</a></li>
-                        <li><a href="javascript:;" data-target="1">extract/validate</a></li>
-                    </ul>
+            <div id="tab-step-list" style="float: right; width: 70%;">
 
-                    <div>
-                        <div class="am-tabs-bd">
-                            <div class="am-tab-panel">
-                                <div class="form-inline">
-                                    <!--url-->
-                                    <div class="form-group">
-                                        <div class="input-group">
-                                            <div class="input-group-addon">URL</div>
-                                            <input type="text" class="form-control" id="url" name="url"
-                                                   placeholder="api url">
-                                        </div>
-                                    </div>
-                                    <!--Method-->
-                                    <div class="form-group ">
-                                        <div class="input-group">
-                                            <div class="input-group-addon">Method</div>
-                                            <select class="form-control" name="method" id="method">
-                                                <option>POST</option>
-                                                <option>GET</option>
-                                                <option>PUT</option>
-                                                <option>DELETE</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <!--Type-->
-                                    <div class="form-group ">
-                                        <div class="input-group">
-                                            <div class="input-group-addon">Type</div>
-                                            <select class="form-control" name="DataType" id="DataType">
-                                                <option>data</option>
-                                                <option>json</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <button class="btn btn-info" value="添 加" id="add_data" onclick="add_row('data')">add
-                                        data
-                                    </button>
-                                    <button class="btn btn-danger" value="删 除" id="del_data" onclick="del_row('data')">
-                                        del data
-                                    </button>
-                                    <button class="btn btn-info" value="添 加" onclick="add_row('header')">add headers
-                                    </button>
-                                    <button class="btn btn-danger" value="删 除" onclick="del_row('header')">del headers
-                                    </button>
-
-
-                                    <!--json-->
-                                    <form id="form_request_data">
-
-                                    <span style="font-size:10px;" id="json-text">
-                                   <div style="margin-left: 0px; margin-top: 5px; height: 200px">
-                                       <pre id="code" class="ace_editor ace-github"
-                                            style="margin-top: 0px; margin-bottom: 0px; min-height: 200px; font-size: 17px;"><div
-                                               style="position: absolute;"></div><textarea class="ace_text-input"
-                                                                                           wrap="off" autocorrect="off"
-                                                                                           autocapitalize="off"
-                                                                                           spellcheck="false"
-                                                                                           style="opacity: 0; height: 20px; width: 9.34688px; left: 47px; top: 60px;"></textarea><div
-                                               class="ace_gutter"><div
-                                               class="ace_layer ace_gutter-layer ace_folding-enabled"
-                                               style="margin-top: 0px; height: 238px; width: 43px;"><div
-                                               class="ace_gutter-cell " style="height: 20px;">1<span
-                                               class="ace_fold-widget ace_start ace_open" style="height: 20px;"></span></div><div
-                                               class="ace_gutter-cell " style="height: 20px;">2</div><div
-                                               class="ace_gutter-cell " style="height: 20px;">3</div><div
-                                               class="ace_gutter-cell " style="height: 20px;">4</div><div
-                                               class="ace_gutter-cell " style="height: 20px;">5</div></div><div
-                                               class="ace_gutter-active-line"
-                                               style="top: 60px; height: 20px;"></div></div><div class="ace_scroller"
-                                                                                                 style="left: 43px; right: 0px; bottom: 0px;"><div
-                                               class="ace_content"
-                                               style="margin-top: 0px; width: 492px; height: 238px; margin-left: 0px;"><div
-                                               class="ace_layer ace_print-margin-layer"><div class="ace_print-margin"
-                                                                                             style="left: 751.75px; visibility: visible;"></div></div><div
-                                               class="ace_layer ace_marker-layer"><div class="ace_active-line"
-                                                                                       style="height:20px;top:60px;left:0;right:0;"></div></div><div
-                                               class="ace_layer ace_text-layer" style="padding: 0px 4px;"><div
-                                               class="ace_line_group" style="height:20px"><div class="ace_line"
-                                                                                               style="height:20px"><span
-                                               class="ace_paren ace_lparen">{</span></div></div><div
-                                               class="ace_line_group" style="height:20px"><div class="ace_line"
-                                                                                               style="height:20px">    <span
-                                               class="ace_variable">"key"</span>: <span
-                                               class="ace_string">"value"</span></div></div><div class="ace_line_group"
-                                                                                                 style="height:20px"><div
-                                               class="ace_line" style="height:20px"><span
-                                               class="ace_paren ace_rparen">}</span></div></div><div
-                                               class="ace_line_group" style="height:20px"><div class="ace_line"
-                                                                                               style="height:20px"></div></div><div
-                                               class="ace_line_group" style="height:20px"><div class="ace_line"
-                                                                                               style="height:20px"><span
-                                               class="ace_indent-guide">    </span><span
-                                               class="ace_indent-guide">    </span><span
-                                               class="ace_indent-guide">    </span><span
-                                               class="ace_indent-guide">    </span><span
-                                               class="ace_indent-guide">    </span><span
-                                               class="ace_indent-guide">    </span><span
-                                               class="ace_indent-guide">    </span><span
-                                               class="ace_indent-guide">    </span><span
-                                               class="ace_indent-guide">    </span>   </div></div></div><div
-                                               class="ace_layer ace_marker-layer"></div><div
-                                               class="ace_layer ace_cursor-layer ace_hidden-cursors"><div
-                                               class="ace_cursor"
-                                               style="left: 4px; top: 60px; width: 9.34688px; height: 20px;"></div></div></div></div><div
-                                               class="ace_scrollbar ace_scrollbar-v"
-                                               style="display: none; width: 22px; bottom: 0px;"><div
-                                               class="ace_scrollbar-inner"
-                                               style="width: 22px; height: 100px;"></div></div><div
-                                               class="ace_scrollbar ace_scrollbar-h"
-                                               style="display: none; height: 22px; left: 43px; right: 0px;"><div
-                                               class="ace_scrollbar-inner"
-                                               style="height: 22px; width: 492px;"></div></div><div
-                                               style="height: auto; width: auto; top: 0px; left: 0px; visibility: hidden; position: absolute; white-space: pre; font: inherit; overflow: hidden;"><div
-                                               style="height: auto; width: auto; top: 0px; left: 0px; visibility: hidden; position: absolute; white-space: pre; font: inherit; overflow: visible;"></div><div
-                                               style="height: auto; width: auto; top: 0px; left: 0px; visibility: hidden; position: absolute; white-space: pre; font-style: inherit; font-variant: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; overflow: visible;">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</div></div></pre>
-                                   </div>
-                                </span>
-
-                                    </form>
-
-                                    <!--data-->
-                                    <form id="form_request_data">
-                                        <table class="table table-hover table-condensed table-bordered table-striped"
-                                               id="data">
-                                            <caption>data:</caption>
-                                            <thead>
-                                            <tr class="active text-success">
-                                                <th width="5%" align="center">Option</th>
-                                                <th width="30%" align="center">Key</th>
-                                                <th width="5%" align="center">Type</th>
-                                                <th width="60%" align="center">Value</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr>
-                                                <td><input type="checkbox" name="data" style="width:55px"></td>
-                                                <td><input type="text" name="test[][key]" value=""
-                                                           style="width:100%; border: none"></td>
-                                                <td><select name="test[][type]" class="form-control"
-                                                            style="height: 25px; font-size: 15px; padding-top: 0px; padding-left: 0px; border: none">
-                                                    <option>string</option>
-                                                    <option>int</option>
-                                                    <option>float</option>
-                                                    <option>boolean</option>
-                                                </select></td>
-                                                <td><input type="text" name="test[][value]" value=""
-                                                           style="width:100%; border: none"></td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                    </form>
-                                    <!--header-->
-                                    <form id="form_request_headers">
-                                        <table class="table table-hover table-condensed table-bordered table-striped"
-                                               id="header">
-                                            <caption>headers:</caption>
-                                            <thead>
-                                            <tr class="active text-success">
-                                                <th width="5%" align="center">Option</th>
-                                                <th width="40%" align="center">Key</th>
-                                                <th width="55%" align="center">Value</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr>
-                                                <td><input type="checkbox" name="header" style="width:55px">
-                                                </td>
-                                                <td><input type="text" name="test[][key]" value="headers_key"
-                                                           style="width:100%; border: none"></td>
-                                                <td><input type="text" name="test[][value]" value="headers_value"
-                                                           style="width:100%; border: none"></td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                    </form>
-                                </div>
-                            </div>
-                            <div class="am-tab-panel">
-                                <button class="btn btn-info" value="添 加" onclick="add_row('extract')">add extract
-                                </button>
-                                <button class="btn btn-danger" value="删 除" onclick="del_row('extract')">del extract
-                                </button>
-                                <button class="btn btn-info" value="添 加" onclick="add_row('validate')">add validate
-                                </button>
-                                <button class="btn btn-danger" value="删 除" onclick="del_row('validate')">del validate
-                                </button>
-
-                                <form id="form_extract">
-                                    <table class="table table-hover table-condensed table-bordered table-striped"
-                                           id="extract">
-                                        <caption>extract:</caption>
-                                        <thead>
-                                        <tr class="active text-success">
-                                            <th width="5%" align="center">Option</th>
-                                            <th width="30%" align="center">Key</th>
-                                            <th width="55%" align="center">Value</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        </tbody>
-                                    </table>
-                                </form>
-
-                                <form id="form_validate">
-                                    <table class="table table-hover table-condensed table-bordered table-striped"
-                                           id="validate">
-                                        <caption>validate:</caption>
-                                        <thead>
-                                        <tr class="active text-success">
-                                            <th width="2%" align="center">Option</th>
-                                            <th width="32%" align="center">Check</th>
-                                            <th width="10%" align="center">Comparator</th>
-                                            <th width="8%" align="center">Type</th>
-                                            <th width="48%" align="center">Expected</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        </tbody>
-                                    </table>
-                                </form>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
 
         </div>
 
+        <div class="am-form-group am-cf">
+            <div class="you" style="margin-left: 11%;">
+                <button id="save" type="button" class="am-btn am-btn-success am-radius">点 击 提 交
+                </button>&nbsp;
+            </div>
+        </div>
+
     </div>
+
 
     <script>
         editor = null;
@@ -353,18 +130,28 @@
         }
 
         function add_li(data, index) {
-            var api = data["test"]
-            var api_id = data["id"]
+            var api = data["test"];
 
-            var li = $('<li style=\'margin-left:15px\'>' +
-                '    <label for="' + step_index + '">API:' + api.name.case_name + ' StepName:</label>' +
-                '    <input type="text" name="step_name" id="' + step_index + '">' +
-                '</li>');
+            var li = $(`<li style="margin-left: 15px;"></li>`);
+            var a = $(`<a style="font-size: 20px" href="#" data-index="#main_editer_` + step_index + `">` + api.name.case_name + `</a>`);
 
-            var temp = $("<i class=\"js - remove\">✖</i>");
-            temp.on("click", function () {
+            a.on("click", function () {
+                var id = $(this).attr("data-index");
+                var tar = $(id);
+
+                tar.removeClass("hidden_div");
+                tar.siblings("div").addClass('hidden_div');
+            });
+
+            var i = $("<i class=\"js - remove\">✖</i>");
+            i.on("click", function () {
+                var id = $(this).siblings("a").attr("data-index");
+                $(id).remove();
                 $(this).parent("li").remove();
             });
+
+            li.append(a);
+            li.append(i);
             $("#pre_case").append(li);
         }
 
@@ -376,30 +163,65 @@
 
 
             var panel1 = $(`<div class="am-tab-panel"></div>`);
-
-
             var request_view = get_request(request);
-
             panel1.append(request_view)
+            var panel2 = get_panel2_view(extract, validate);
 
+
+            var main_div = $(`<div class="am-tabs am-margin" id="main_editer_` + step_index + `"></div>`);
+            var h1 = $(`<h1>` + api.name.case_name + `</h1>`);
+            main_div.append(h1);
+
+            var li1 = $(`<li><a href="javascript:;" data-target="0">request</a></li>`);
+            var li2 = $(`<li><a href="javascript:;" data-target="1">extract/validate</a></li>`);
+            li1.on("click", li_func);
+            li2.on("click", li_func);
+            var ul = $(`<ul class="am-tabs-nav am-nav am-nav-tabs"></ul>`);
+            ul.append(li1);
+            ul.append(li2);
+            main_div.append(ul);
+
+            var sub_div = $(`<div class="am-tabs-bd"></div>`);
+            sub_div.append(panel1);
+            sub_div.append(panel2);
+            var div = $(`<div></div>`);
+            div.append(sub_div);
+
+            main_div.append(div);
+
+            $("#tab-step-list").append(main_div);
+            li1.trigger("click");
+
+            try {
+                editor = ace.edit("code_" + step_index);
+                init_acs('json', 'github', editor);
+            } catch (err) {
+                editor = null;
+            }
+
+            main_div.siblings("div").addClass('hidden_div');
         }
 
         function get_panel2_view(extract, validate) {
             var panel2 = $(`<div class="am-tab-panel"></div>`);
 
-            var buttons = $(`<button class="btn btn-info" value="添 加" onclick="add_row('extract_`+step_index+`')">add extract</button>
-                            <button class="btn btn-danger" value="删 除" onclick="del_row('extract_`+step_index+`')">del extract</button>
-                            <button class="btn btn-info" value="添 加" onclick="add_row('validate_`+step_index+`')">add validate</button>
-                            <button class="btn btn-danger" value="删 除" onclick="del_row('validate_`+step_index+`')">del validate</button>`)
+            var buttons = $(`<button class="btn btn-info" value="添 加" onclick="add_row('extract_` + step_index + `')">add extract</button>
+                            <button class="btn btn-danger" value="删 除" onclick="del_row('extract_` + step_index + `')">del extract</button>
+                            <button class="btn btn-info" value="添 加" onclick="add_row('validate_` + step_index + `')">add validate</button>
+                            <button class="btn btn-danger" value="删 除" onclick="del_row('validate_` + step_index + `')">del validate</button>`)
 
             var extract_view = get_extract_view(extract);
-            
+            var validate_view = get_validate_view(validate)
 
+            panel2.append(buttons);
+            panel2.append(extract_view);
+            panel2.append(validate_view);
+            return panel2;
         }
 
         function get_extract_view(extract) {
-            var form = $(`<form id="form_extract_`+step_index+`"></form>`);
-            var table = $(`<table class="table table-hover table-condensed table-bordered table-striped" id="extract_`+step_index+`"></table>`);
+            var form = $(`<form id="form_extract_` + step_index + `"></form>`);
+            var table = $(`<table class="table table-hover table-condensed table-bordered table-striped" id="extract_` + step_index + `"></table>`);
 
             table.append($(`<caption>extract:</caption>
                             <thead>
@@ -411,16 +233,16 @@
                             </thead>`));
 
             var tbody = $(`<tbody></tbody>`);
-            
+
             for (var i in extract.test) {
                 var key = extract.test[i].key;
                 var value = extract.test[i].value;
 
-                var checkbox = `<td><input type="checkbox" name="extract_`+step_index+`" style="width:55px"></td>`;
-                var extract_key = `<td><input type="text" name="test[][key]" value="`+key+`" style="width:100%; border: none"></td>`;
-                var extract_value = `<td><input type="text" name="test[][value]" value="`+value+`" style="width:100%; border: none"></td>`;
+                var checkbox = `<td><input type="checkbox" name="extract_` + step_index + `" style="width:55px"></td>`;
+                var extract_key = `<td><input type="text" name="test[][key]" value="` + key + `" style="width:100%; border: none"></td>`;
+                var extract_value = `<td><input type="text" name="test[][value]" value="` + value + `" style="width:100%; border: none"></td>`;
 
-                tbody.append($(`<tr>`+checkbox+extract_key+extract_value+`</tr>`));
+                tbody.append($(`<tr>` + checkbox + extract_key + extract_value + `</tr>`));
             }
             table.append(tbody);
             form.append(table);
@@ -428,10 +250,11 @@
         }
 
         function get_validate_view(validate) {
-            `<form id="form_validate">
-                <table class="table table-hover table-condensed table-bordered table-striped"
-                       id="validate">
-                    <caption>validate:</caption>
+            var form = $(`<form id="form_validate_` + step_index + `"></form>`);
+            var table = $(`<table class="table table-hover table-condensed
+                            table-bordered table-striped" id="validate_` + step_index + `"></table>`);
+
+            table.append($(`<caption>validate:</caption>
                     <thead>
                     <tr class="active text-success">
                         <th width="2%" align="center">Option</th>
@@ -440,49 +263,50 @@
                         <th width="8%" align="center">Type</th>
                         <th width="48%" align="center">Expected</th>
                     </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td><input type="checkbox" name="validate" style="width:55px"></td>
-                        <td><input type="text" name="test[][key]" value="validate_check" style="width:100%; border: none"></td>
-                        <td><select name="test[][comparator]" class="form-control" style="height: 25px; font-size: 15px; padding-top: 0px; padding-left: 0px; border: none">
+                    </thead>`));
 
-                                <option selected="">equals</option>
-                                <option>contains</option>
-                                <option>startswith</option>
-                                <option>endswith</option>
-                                <option>regex_match</option>
-                                <option>type_match</option>
-                                <option>contained_by</option>
-                                <option>less_than</option>
-                                <option>less_than_or_equals</option>
-                                <option>greater_than</option>
-                                <option>greater_than_or_equals</option>
-                                <option>not_equals</option>
-                                <option>string_equals</option>
-                                <option>length_equals</option>
-                                <option>length_greater_than</option>
-                                <option>length_greater_than_or_equals</option>
-                                <option>length_less_than</option>
-                                <option>length_less_than_or_equals</option>
-                        </select></td>
-                        <td>
-                            <select name="test[][type]" class="form-control" style="height: 25px; font-size: 15px; padding-top: 0px; padding-left: 0px; border: none">
-                                    <option>string</option>
-                                    <option>int</option>
-                                    <option>float</option>
-                                    <option>boolean</option>
-                            </select>
-                        </td>
-                        <td><input type="text" name="test[][value]" value="validate_expected" style="width:100%; border: none"></td>
-                    </tr>
-                    </tbody>
-                </table>
-            </form>`
+            var tbody = $(`<tbody></tbody>`);
+
+            for (var i in validate.test) {
+                var comparator = validate.test[i].comparator;
+                var key = validate.test[i].key;
+                var type = validate.test[i].type;
+                var value = validate.test[i].value;
 
 
+                var checkbox = `<td><input type="checkbox" id="validate_` + step_index + `" name="validate_` + step_index + `" style="width:55px"></td>`
+                var text_key = `<td><input type="text" name="test[][key]" value="` + key + `" style="width:100%; border: none"></td>`
+                var comparator_Html = `<td>
+                                    <select name="test[][comparator]" class="form-control" style="height: 25px; font-size: 15px; padding-top: 0px; padding-left: 0px; border: none">
+                                    ` + get_option_comparator(comparator) + `
+                                    </select>
+                                    </td>`;
+                var type_html = `<td>
+                                    <select name="test[][type]" class="form-control" style="height: 25px; font-size: 15px; padding-top: 0px; padding-left: 0px; border: none">
+                                    ` + get_option_text(type) + `
+                                    </select>
+                                 </td>`;
+                var text_value = `<td><input type="text" name="test[][value]" value="` + value + `" style="width:100%; border: none"></td>`;
 
+                var a = $(`<tr>` + checkbox + text_key + comparator_Html + type_html + text_value + `</tr>`);
 
+                tbody.append(a);
+            }
+
+            table.append(tbody);
+            form.append(table);
+            return form
+        }
+
+        function get_option_comparator(type) {
+            var type_list = ["equals", "contains", "startswith", "endswith", "regex_match"];
+            var option = `<option selected="">` + type + `</option>`;
+            for (var t in type_list) {
+                if (type_list[t] !== type) {
+                    option = option + `<option>` + type_list[t] + `</option>`
+                }
+            }
+            return option;
         }
 
         function get_request(request) {
@@ -511,13 +335,6 @@
 
             form_inline.append(data_view)
             form_inline.append(headers_view)
-
-            try {
-                editor = ace.edit("code_" + step_index);
-                init_acs('json', 'github', editor);
-            } catch (err) {
-                editor = null;
-            }
 
             return form_inline
         }
@@ -565,7 +382,7 @@
             var type_view = $(`<div class="form-group ">
                                     <div class="input-group">
                                         <div class="input-group-addon">Type</div>
-                                        <select class="form-control" onchange="select_func(`+step_index+`)" name="DataType" id="DataType_` + step_index + `">
+                                        <select class="form-control" onchange="select_func(` + step_index + `)" name="DataType" id="DataType_` + step_index + `">
                                         ` + option + `
                                         </select>
                                     </div>
@@ -575,16 +392,16 @@
 
         function get_buttons_view(type) {
             var attr = ""
-            if (type === "josn"){
+            if (type === "josn") {
                 attr = `disabled="disabled"`;
             }
 
-            var b1 = `<button class="btn btn-info" `+attr+` value="添 加" id="add_data_`+step_index+`" onclick="add_row('data_`+step_index+`')">add data </button>`;
-            var b2 = `<button class="btn btn-danger" `+attr+` value="删 除" id="del_data_`+step_index+`" onclick="del_row('data_`+step_index+`')">del data</button>`;
-            var b3 = `<button class="btn btn-info" value="添 加" onclick="add_row('header_`+step_index+`')">add headers</button>`;
-            var b4 = `<button class="btn btn-danger" value="删 除" onclick="del_row('header_`+step_index+`')">del headers</button>`;
+            var b1 = `<button class="btn btn-info" ` + attr + ` value="添 加" id="add_data_` + step_index + `" onclick="add_row('data_` + step_index + `')">add data </button>`;
+            var b2 = `<button class="btn btn-danger" ` + attr + ` value="删 除" id="del_data_` + step_index + `" onclick="del_row('data_` + step_index + `')">del data</button>`;
+            var b3 = `<button class="btn btn-info" value="添 加" onclick="add_row('header_` + step_index + `')">add headers</button>`;
+            var b4 = `<button class="btn btn-danger" value="删 除" onclick="del_row('header_` + step_index + `')">del headers</button>`;
 
-            return $(b1+b2+b3+b4);
+            return $(b1 + b2 + b3 + b4);
         }
 
         function get_data_view(request_data, type) {
@@ -611,7 +428,7 @@
                     var type = request_data.test[test].type;
                     var value = request_data.test[test].value;
 
-                    var checkbox = `<td><input type="checkbox" name="data_`+step_index+`" style="width:55px"></td>`;
+                    var checkbox = `<td><input type="checkbox" name="data_` + step_index + `" style="width:55px"></td>`;
                     var key_text = `<td><input type="text" name="test[][key]" value="` + key + `" style="width:100%; border: none"></td>`;
                     var option = get_option_text(type);
                     var select = `<td>
@@ -631,7 +448,7 @@
                 form.append(table);
 
             } else if (type === "json") {
-                var json_view = $(`<span style="font-size:10px;" id="json-text">
+                var json_view = $(`<span style="font-size:10px;" id="json-text_` + step_index + `">
                    <div style="margin-left: 0px; margin-top: 5px; height: 200px">
                        <pre id="code_` + step_index + `" class="ace_editor"
                             style="margin-top: 0px; margin-bottom: 0px; min-height: 200px;">
@@ -658,10 +475,10 @@
             return option;
         }
 
-        function get_headers_view(headers){
-            var form = $(`<form id="form_request_headers_`+step_index+`"></form>`);
+        function get_headers_view(headers) {
+            var form = $(`<form id="form_request_headers_` + step_index + `"></form>`);
             var table = $(`<table class="table table-hover table-condensed table-bordered table-striped"
-                       id="header_`+step_index+`"></table>`);
+                       id="header_` + step_index + `"></table>`);
 
             table.append($(`<caption>headers:</caption>
                     <thead>
@@ -673,15 +490,15 @@
                     </thead>`));
             var tbody = $(`<tbody></tbody>`);
 
-            for(var i in headers.test){
+            for (var i in headers.test) {
                 var key = headers.test[i].key;
                 var value = headers.test[i].value;
 
-                var checkbox = `<td><input type="checkbox" name="header_`+step_index+`" style="width:55px"></td>`;
-                var text_input = `<td><input type="text" name="test[][key]" value="`+key+`" style="width:100%; border: none"></td>`;
-                var value_input = `<td><input type="text" name="test[][value]" value="`+value+`"
+                var checkbox = `<td><input type="checkbox" name="header_` + step_index + `" style="width:55px"></td>`;
+                var text_input = `<td><input type="text" name="test[][key]" value="` + key + `" style="width:100%; border: none"></td>`;
+                var value_input = `<td><input type="text" name="test[][value]" value="` + value + `"
                                    style="width:100%; border: none"></td>`;
-                var header = $(`<tr>`+checkbox+text_input+value_input+`</tr>`);
+                var header = $(`<tr>` + checkbox + text_input + value_input + `</tr>`);
                 tbody.append(header);
             }
             table.append(tbody);
@@ -690,8 +507,6 @@
 
             return form
         }
-
-
 
         $('#DataType').on('change', function () {
             if ($('#DataType').val() === 'json') {
@@ -740,29 +555,35 @@
             $(this).addClass("am-active").siblings("li").removeClass("am-active");
             var i = parseInt($(this).children("a").attr("data-target"));
             var asd = $(this).parent("ul").parent("div").find(".am-tab-panel")[i]
-
             $(asd).addClass("am-active").siblings(".am-tab-panel").removeClass("am-active");
         });
 
-        function select_func (index) {
-            if ($('#DataType_'+index).val() === 'json') {
-                $('#add_data_'+index).attr('disabled', true);
-                $('#del_data_'+index).attr('disabled', true);
-                $('#data_'+index).remove();
-                var json_text = "<span style=\"font-size:10px;\" id=\"json-text_"+index+"\">\n" +
+        function li_func() {
+            $(this).addClass("am-active").siblings("li").removeClass("am-active");
+            var i = parseInt($(this).children("a").attr("data-target"));
+            var asd = $(this).parent("ul").parent("div").find(".am-tab-panel")[i]
+            $(asd).addClass("am-active").siblings(".am-tab-panel").removeClass("am-active");
+        }
+
+        function select_func(index) {
+            if ($('#DataType_' + index).val() === 'json') {
+                $('#add_data_' + index).attr('disabled', true);
+                $('#del_data_' + index).attr('disabled', true);
+                $('#data_' + index).remove();
+                var json_text = "<span style=\"font-size:10px;\" id=\"json-text_" + index + "\">\n" +
                     " <div style=\"margin-left: 0px; margin-top: 5px; height: 200px\">" +
-                    "<pre id=\"code_"+index+"\" class=\"ace_editor\" style=\"margin-top: 0px; margin-bottom: 0px; min-height: 200px;\">\n" +
+                    "<pre id=\"code_" + index + "\" class=\"ace_editor\" style=\"margin-top: 0px; margin-bottom: 0px; min-height: 200px;\">\n" +
                     "<textarea>\n" +
                     "{\"key\":\"value\"}\n" +
                     "</textarea>\n" +
                     "</pre></div></span>";
-                $('#form_request_data_'+index).append(json_text);
-                editor = ace.edit("code_"+index);
+                $('#form_request_data_' + index).append(json_text);
+                editor = ace.edit("code_" + index);
                 init_acs('json', 'github', editor);
 
             } else {
-                var table = '<table class="table table-hover table-condensed table-bordered table-striped" id="data_'+index+'">\n' +
-                    '                                <caption>' + $('#DataType').val() + ':</caption>\n' +
+                var table = '<table class="table table-hover table-condensed table-bordered table-striped" id="data_' + index + '">\n' +
+                    '                                <caption>' + $('#DataType_' + index).val() + ':</caption>\n' +
                     '                                <thead>\n' +
                     '                                <tr class="active text-success">\n' +
                     '                                    <th width="5%" align="center">Option</th>\n' +
@@ -775,16 +596,20 @@
                     '                                </tbody>\n' +
                     '                            </table>';
 
-                $('#add_data_'+index).text('add ' + $('#DataType_'+index).val());
-                $('#del_data_'+index).text('del ' + $('#DataType_'+index).val());
+                $('#add_data_' + index).text('add ' + $('#DataType_' + index).val());
+                $('#del_data_' + index).text('del ' + $('#DataType_' + index).val());
 
-                $('#add_data_'+index).removeAttr("disabled");
-                $('#del_data_'+index).removeAttr("disabled");
-                $('#data_'+index).remove();
-                $('#json-text_'+index).remove();
-                $('#form_request_data_'+index).append(table);
+                $('#add_data_' + index).removeAttr("disabled");
+                $('#del_data_' + index).removeAttr("disabled");
+                $('#data_' + index).remove();
+                $('#json-text_' + index).remove();
+                $('#form_request_data_' + index).append(table);
             }
         }
+
+        $("#save").on("click", function () {
+            
+        })
 
     </script>
 

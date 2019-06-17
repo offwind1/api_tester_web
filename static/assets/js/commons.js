@@ -339,7 +339,7 @@ function add_row(id) {
         "<option>string</option><option>int</option><option>float</option><option>boolean</option></select>";
     var cell_comparator = "<select name='test[][comparator]' class='form-control' style='height: 25px; font-size: 15px; " +
         "padding-top: 0px; padding-left: 0px; border: none'> " +
-        "<option>equals</option> <option>contains</option> <option>startswith</option> <option>endswith</option> <option>regex_match</option> <option>type_match</option> <option>contained_by</option> <option>less_than</option> <option>less_than_or_equals</option> <option>greater_than</option> <option>greater_than_or_equals</option> <option>not_equals</option> <option>string_equals</option> <option>length_equals</option> <option>length_greater_than</option> <option>length_greater_than_or_equals</option> <option>length_less_than</option> <option>length_less_than_or_equals</option></select>";
+        "<option>equals</option> <option>contains</option> <option>startswith</option> <option>endswith</option> <option>regex_match</option>";
 
     var myNewRow = tabObj.insertRow(rowsNum);
     var newTdObj0 = myNewRow.insertCell(0);
@@ -349,11 +349,11 @@ function add_row(id) {
 
     newTdObj0.innerHTML = cell_check
     newTdObj1.innerHTML = cell_key;
-    if (id === 'variables' || id === 'data') {
+    if (id.startsWith('variables') || id.startsWith('data')) {
         var newTdObj3 = myNewRow.insertCell(3);
         newTdObj2.innerHTML = cell_type;
         newTdObj3.innerHTML = cell_value;
-    } else if (id === 'validate') {
+    } else if (id.startsWith('validate')) {
         var newTdObj3 = myNewRow.insertCell(3);
         newTdObj2.innerHTML = cell_comparator;
         newTdObj3.innerHTML = cell_type;

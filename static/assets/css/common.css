@@ -71,3 +71,7 @@ table#extract tr td, table#hooks tr td, table#params tr td {
 #pre_config li:hover i{
     opacity: 1;
 }
+
+.hidden_div{
+    display: none;
+}
